@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"stdlib.h": "c",
+			"wait.h": "c",
+			"storage.h": "c",
+			"string.h": "c"
+		}
+	}
+}
