@@ -19,8 +19,6 @@ typedef struct _bus{
     int input_pipe;
 }Bus;
 
-Bus buses[2];
-int ids[2][5];
 
 void handler(int signumber, siginfo_t *info, void *nonused);
 Bus create_and_send_bus(int (*chid_proc) (int,int,int), int bus_id);
