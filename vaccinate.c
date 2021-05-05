@@ -5,6 +5,7 @@ void handler(int signumber, siginfo_t *info, void *nonused){
     //printf("%i - %i \n",getpid(),getppid());
     int bus = info->si_value.sival_int;
     printf("Bus %i: HARCRA_FEL!\n",bus );
+    fflush(stdout);
     printf("A következő ID-k kapnak SMS-t: %i",ids[bus][0]);
     for (int i = 1; i < 5; i++)
     {
@@ -93,7 +94,7 @@ int bus_main(int pipe_in,int pipe_out, int bus_id){
         }
     }
     printf("\n");
-    write(pipe_out,buffer,sizeof(buffer)+1);
+    write(pipe_out,buffer,sizeof(buffer));
     return 0;
 }
 
@@ -102,6 +103,7 @@ int main_vaccinated(Storage* storage){
     buses[0].exist = 0;
     buses[1].exist = 0;
     //setbuf(stdout, NULL);
+    //setvbuf(stdout, NULL, _IONBF, 0); 
     //2. beadando logokia része
     struct sigaction sigact;
     sigact.sa_sigaction = handler;
